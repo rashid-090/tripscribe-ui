@@ -1,0 +1,46 @@
+@import url('https://fonts.googleapis.com/css2?family=El+Messiri:wght@400..700&family=Karla:ital,wght@0,200..800;1,200..800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap');
+@import "tailwindcss";
+
+
+@theme {
+  --font-Quicksand: "Quicksand", sans-serif;
+  --font-messiri:  "El Messiri", sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+    -webkit-tap-highlight-color: transparent;
+}
+
+/* ::-moz-selection { 
+  color: #fff;
+  background: #009A92;
+}
+
+::selection {
+  color: #fff;
+  background: #009A92;
+} */
+
+@layer base {
+  input[type="number"]::-webkit-inner-spin-button,
+  input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+  }
+}
+body {
+  /* max-width: 1550px; */
+    margin: 0 auto;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Quicksand", sans-serif;
+    /* font-family: "El Messiri", sans-serif; */
+    overflow-x: hidden;
+    color: #000;
+    background-color: white;
+}
+
+p{
+  font-weight: 300;
+}
