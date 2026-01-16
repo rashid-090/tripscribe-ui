@@ -46,14 +46,7 @@ const router = createBrowserRouter([
           </Suspense>
         ),
       },
-      {
-        path: "/about",
-        element: (
-          <Suspense fallback={<Loading />}>
-            <Home />
-          </Suspense>
-        ),
-      },
+    
     ],
   },
   {
