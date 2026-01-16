@@ -8,7 +8,7 @@ import Testimonisal from "./home/Testimonials";
 import NotFound from "./home/NotFound";
 import Loading from "./home/Loading";
 import FinePlace from "./home/FinePlace";
-import Faq from "./home/Faq";
+import Faq from "./home/FaqList";
 import Blog from "./home/Blog";
 
 

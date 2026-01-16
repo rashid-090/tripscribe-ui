@@ -87,7 +87,7 @@ const FAQItem = ({ question, answer, isOpen, onClick }) => {
 };
 
 // --- Main Component (State Manager) ---
-const Faq = () => {
+const FaqList = () => {
   // State checks which ID is currently open. null means all closed.
   const [openId, setOpenId] = useState(null);
 
@@ -181,4 +181,4 @@ const Faq = () => {
   );
 };
 
-export default Faq;
+export default FaqList;
