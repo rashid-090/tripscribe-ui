@@ -34,10 +34,10 @@ const Footer = () => {
 
 
       {/* ==================== 2. MAIN FOOTER (Bottom) ==================== */}
-      <div className="bg-[#0b0502] text-white pt-20 pb-8 px-6 md:px-16 lg:px-24">
+      <div className=" bg-[#0b0502] text-white pt-20 pb-8 ">
         
         {/* Grid Container */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-8 mb-16 border-b border-white/10 pb-16">
+        <div className="w-11/12 mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-8 mb-16 border-b border-white/10 pb-16">
           
           {/* Column 1: Brand & Address (Span 4 cols) */}
           <div className="lg:col-span-4 space-y-6">

@@ -8,7 +8,7 @@ const placesData = [
     id: 1,
     title: "Phuket",
     location: "Thailand", // Fixed geography (Image said Myanmar, corrected to Thailand usually associated with Phuket, or kept as placeholder if you prefer)
-    price: 40,
+    price: 40000,
     image: "https://images.unsplash.com/photo-1490806843957-31f4c9a91c65?q=80&w=800&auto=format&fit=crop", 
     category: "DESTINATION"
   },
@@ -16,7 +16,7 @@ const placesData = [
     id: 2,
     title: "Kelingking",
     location: "Indonesia",
-    price: 20,
+    price: 2000,
     image: "https://images.unsplash.com/photo-1537996194471-e657df975ab4?q=80&w=800&auto=format&fit=crop",
     category: "DESTINATION"
   },
@@ -24,7 +24,7 @@ const placesData = [
     id: 3,
     title: "Mt. Bromo",
     location: "Indonesia",
-    price: 35,
+    price: 3500,
     image: "https://images.unsplash.com/photo-1588668214407-6ea9a6d8c272?q=80&w=800&auto=format&fit=crop",
     category: "DESTINATION"
   },
@@ -32,7 +32,7 @@ const placesData = [
     id: 4,
     title: "Old Bagan",
     location: "Myanmar",
-    price: 18,
+    price: 18000,
     image: "https://images.unsplash.com/photo-1490806843957-31f4c9a91c65?q=80&w=800&auto=format&fit=crop",
     category: "DESTINATION"
   },
@@ -40,7 +40,7 @@ const placesData = [
     id: 5,
     title: "Ubud",
     location: "Indonesia",
-    price: 18,
+    price: 18000,
     image: "https://images.unsplash.com/photo-1490806843957-31f4c9a91c65?q=80&w=800&auto=format&fit=crop",
     category: "ACCOMODATION"
   },
@@ -48,7 +48,7 @@ const placesData = [
     id: 6,
     title: "Marina Bay",
     location: "Singapore",
-    price: 24,
+    price: 24000,
     image: "https://images.unsplash.com/photo-1506318164473-2dfd3ede3623?q=80&w=800&auto=format&fit=crop",
     category: "ACTIVITY"
   },
@@ -56,7 +56,7 @@ const placesData = [
     id: 7,
     title: "Mt. Fuji",
     location: "Japan",
-    price: 48,
+    price: 48000,
     image: "https://images.unsplash.com/photo-1490806843957-31f4c9a91c65?q=80&w=800&auto=format&fit=crop",
     category: "ACTIVITY"
   },
@@ -64,7 +64,7 @@ const placesData = [
     id: 8,
     title: "Padar Island",
     location: "Indonesia",
-    price: 26,
+    price: 26000,
     image: "https://images.unsplash.com/photo-1490806843957-31f4c9a91c65?q=80&w=800&auto=format&fit=crop",
     category: "DESTINATION"
   }
@@ -167,7 +167,7 @@ const FinePlace = () => {
                   {/* Right Side: Price */}
                   <div className="flex flex-col items-end">
                     <span className="text-xs text-gray-300 font-Quicksand mb-1">Start From</span>
-                    <span className="text-3xl font-messiri font-medium">${place.price}</span>
+                    <span className="text-xl font-messiri font-medium">₹{place.price}</span>
                   </div>
 
                 </div>

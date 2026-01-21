@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 
@@ -42,6 +42,23 @@ const destinations = [
 
 const FullScreenGallery = () => {
   const [activeIndex, setActiveIndex] = useState(0); 
+  const [isPaused, setIsPaused] = useState(false); // New state to handle pausing
+
+  // --- AUTO-PLAY FUNCTIONALITY ---
+  useEffect(() => {
+    // If user is hovering (paused), do not set interval
+    if (isPaused) return;
+
+    const interval = setInterval(() => {
+      setActiveIndex((current) => {
+        // If we are at the end (index 4), go back to 0, otherwise add 1
+        return current === destinations.length - 1 ? 0 : current + 1;
+      });
+    }, 4000); // Change slides every 4 seconds
+
+    // Cleanup interval on unmount or when paused changes
+    return () => clearInterval(interval);
+  }, [isPaused]);
 
   return (
     // Changed h-screen to h-[100dvh] for better mobile browser support
@@ -76,13 +93,18 @@ const FullScreenGallery = () => {
       </div>
 
       {/* --- FOREGROUND COLUMNS (Navigation) --- */}
-      {/* Changed: grid-cols-1 for mobile, grid-cols-5 for desktop */}
       <div className="relative z-20 w-full h-full grid grid-cols-1 md:grid-cols-5">
         {destinations.map((item, index) => (
           <div
             key={item.id}
-            onMouseEnter={() => setActiveIndex(index)}
-            onClick={() => setActiveIndex(index)} // Added click for mobile touch
+            // Logic: Set active, and pause timer so it doesn't jump while reading
+            onMouseEnter={() => {
+              setActiveIndex(index);
+              setIsPaused(true);
+            }}
+            // Logic: Resume timer when mouse leaves
+            onMouseLeave={() => setIsPaused(false)}
+            onClick={() => setActiveIndex(index)}
             className={`
                 relative h-full cursor-pointer 
                 transition-colors duration-300 hover:bg-white/5
@@ -95,7 +117,6 @@ const FullScreenGallery = () => {
             `}
           >
             {/* Top Text Group */}
-            {/* Adjusted margins and alignment for mobile vs desktop */}
             <div className="flex flex-col items-start md:items-center gap-2 md:gap-4 md:mt-16 transition-all duration-300 transform group-hover:-translate-y-2">
                 <span className="text-[10px] md:text-xs tracking-[0.2em] uppercase text-white/70">
                     {item.label}
@@ -106,7 +127,6 @@ const FullScreenGallery = () => {
             </div>
 
             {/* Bottom "View More" */}
-            {/* On mobile: centered or pushed right. Desktop: pushed bottom */}
             <div className={`
                 flex flex-row md:flex-col items-center gap-2 md:mb-12 transition-all duration-500
                 ${activeIndex === index ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4 md:translate-y-4'}

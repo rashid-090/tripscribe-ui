@@ -32,8 +32,8 @@ const Blog = () => {
           <div className="flex flex-col justify-between h-full">
             
             {/* Header Text Section */}
-            <div className="mb-10">
-              <h2 className="text-4xl md:text-4xl xl:text-5xl font-messiri font-medium text-black leading-[1.15] mb-6">
+            <div className="mb-5">
+              <h2 className="text-4xl md:text-4xl xl:text-5xl font-messiri font-medium text-black leading-[1.15] mb-5">
                 Read Our Latest Travel <br /> Blog & Tips Here
               </h2>
               <p className="text-gray-500 text-base md:text-lg leading-relaxed max-w-lg">
@@ -52,8 +52,8 @@ const Blog = () => {
               <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
               
               {/* Card Content */}
-              <div className="absolute bottom-0 left-0 p-8 md:p-10 w-full">
-                <h3 className="text-2xl md:text-3xl font-messiri text-white mb-6 leading-tight max-w-sm">
+              <div className="absolute bottom-0 left-0 p-5 md:p-7 w-full">
+                <h3 className="text-2xl md:text-3xl font-messiri text-white mb-3 leading-tight max-w-sm">
                   Tropical Bliss: Rejuvenate in Asia's Idyllic Beaches
                 </h3>
                 <button className="flex items-center text-white text-xs uppercase tracking-widest hover:text-gray-200 transition-colors">
