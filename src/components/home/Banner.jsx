@@ -1,13 +1,18 @@
 import React, { useState, useEffect } from "react";
+import { motion } from "framer-motion";
 import {
-  FiMenu,
   FiArrowRight,
-  FiFacebook,
-  FiTwitter,
-  FiInstagram,
-  FiClock,
-  FiAlertTriangle,
+  FiUser,
+  FiMail,
+  FiMessageSquare,
+  FiSend,
 } from "react-icons/fi";
+import { IoMailUnreadOutline } from "react-icons/io5";
+import { MdOutlineMarkChatUnread } from "react-icons/md";
+import { PiUserCircleFill } from "react-icons/pi";
+
+
+
 
 const Banner = () => {
   // Background images array
@@ -28,7 +33,7 @@ const Banner = () => {
   }, [images.length]);
 
   return (
-    <div className="relative h-screen w-full overflow-hidden bg-gray-900 text-white font-sans">
+    <div className="relative  min-h-screen md:h-screen w-full overflow-hidden bg-gray-900 text-white font-sans">
       {/* --- BACKGROUND LAYER (Ken Burns Effect) --- */}
       <div className="absolute inset-0 z-0">
         {images.map((img, index) => (
@@ -52,77 +57,106 @@ const Banner = () => {
       </div>
 
       {/* --- CONTENT LAYER --- */}
-      <div className="relative  z-10 flex h-full flex-col justify-between w-11/12 mx-auto py-6  md:py-8">
-        {/* 2. Main Hero Content */}
-        <div className="h-full">
-         
-            {/* Left Content Area */}
-            <div className="md:col-span-8 h-full flex flex-col justify-center space-y-8">
-              {/* Pill Badge */}
-              <div>
-                <span className="inline-block font-Quicksand rounded-full border border-white/20 bg-white/10 px-6 py-2 text-sm backdrop-blur-sm">
-                  Feel The Experience
-                </span>
-              </div>
-
-              {/* Main Headline */}
-              <h1 className="font-messiri text-5xl md:text-7xl leading-tight">
-                Explore The <br />
-                Majestic Asia <br />
-                Landscape Now
-              </h1>
-
-              {/* CTA Button */}
-              <div>
-                <button className="group flex items-center gap-3 rounded-full bg-white px-8 py-4 text-black transition hover:bg-gray-200">
-                  <span className="text-xs tracking-widest">
-                    GET STARTED
-                  </span>
-                  <FiArrowRight
-                    size={15}
-                    className="transition-transform group-hover:translate-x-1"
-                  />
-                </button>
-              </div>
+      <div className="relative py-10 pt-40 md:pt-0 md:py-0 z-10 w-11/12 mx-auto h-full ">
+        
+        {/* LAYOUT FIX: Used Grid to separate Left (Text) and Right (Form) */}
+        <div className="grid grid-cols-1 md:grid-cols-2 h-full items-center">
+          
+          {/* 1. Left Content Area */}
+          <div className="flex flex-col justify-center space-y-8 pr-0 lg:pr-10">
+            {/* Pill Badge */}
+            <div>
+              <span className="inline-block font-Quicksand font-medium rounded-full border border-white/20 bg-white/10 px-6 py-2 text-xs backdrop-blur-sm">
+                Feel The Experience
+              </span>
             </div>
 
+            {/* Main Headline */}
+            <h1 className="font-messiri text-5xl xl:text-7xl leading-tight">
+              Explore The <br />
+              Majestic Asia <br />
+              Landscape Now
+            </h1>
+
+            {/* CTA Button */}
+            <div>
+              <button className="group flex items-center gap-3 rounded-full bg-white px-8 py-4 text-black transition hover:bg-gray-200">
+                <span className="text-xs tracking-widest">GET STARTED</span>
+                <FiArrowRight
+                  size={15}
+                  className="transition-transform group-hover:translate-x-1"
+                />
+              </button>
+            </div>
+          </div>
+
+          {/* 2. Right Side: Glass Contact Form */}
+          {/* Added justify-end to push form to the far right edge within its grid column */}
+          <div className="mt-10 md:mt-0 flex justify-center items-center h-full">
+            <GlassContactForm />
+          </div>
+          
         </div>
-
-        {/* socials */}
-
-        <div className="flex flex-col gap-5 absolute right-0 top-1/2 -translate-y-1/2 py-40">
-          <div className="border border-white/20 rounded-full bg-white/5 px-2 py-2 backdrop-blur-sm w-12 h-12 grid place-items-center">
-              <a href="#"><FiFacebook/></a>
-          </div>
-          <div className="border border-white/20 rounded-full bg-white/5 px-2 py-2 backdrop-blur-sm w-12 h-12 grid place-items-center">
-              <a href="#"><FiInstagram/></a>
-          </div>
-          <div className="border border-white/20 rounded-full bg-white/5 px-2 py-2 backdrop-blur-sm w-12 h-12 grid place-items-center">
-              <a href="#"><FiTwitter/></a>
-          </div>
-        </div>
-
-
       </div>
     </div>
   );
 };
 
-// --- Subcomponents ---
+const GlassContactForm = () => {
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ delay: .5, duration: 0.5 }}
+      className="w-full max-w-md font-Quicksand p-8 xl:p-10 xl:py-16 rounded-3xl border border-white/20 bg-white/10 backdrop-blur-[6px] shadow-2xl relative overflow-hidden"
+    >
+      {/* Decorative gradient blob inside the glass card */}
+      <div className="absolute -top-10 -right-10 w-32 h-32 bg-purple-500/30 rounded-full blur-3xl pointer-events-none"></div>
 
-const SocialButton = ({ icon }) => (
-  <button className="flex h-12 w-12 items-center justify-center rounded-full border border-white/20 bg-white/5 text-white backdrop-blur-sm transition hover:bg-white hover:text-black">
-    {icon}
-  </button>
-);
+      <h3 className="text-4xl font-messiri mb-2 text-white">Get in Touch</h3>
+      <p className="text-gray-200 mb-6">
+        Fill out the form below to start your journey.
+      </p>
 
-const InfoBlurb = ({ icon, text }) => (
-  <div className="flex items-center gap-4 max-w-xs">
-    <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-white/10 backdrop-blur-md">
-      {icon}
-    </div>
-    <p className="text-xs text-gray-300 leading-relaxed">{text}</p>
-  </div>
-);
+      <form className="space-y-5">
+        {/* Name Input */}
+        <div className="relative group">
+          <FiUser className="absolute left-0 top-3 text-gray-300 group-focus-within:text-white transition-colors text-lg" />
+          <input
+            type="text"
+            placeholder="Your Name"
+            className="w-full bg-transparent border-b border-white/20 py-3 pl-8 pr-4 text-sm text-white placeholder:text-gray-300 focus:outline-none focus:border-white transition-all"
+          />
+        </div>
+
+        {/* Email Input */}
+        <div className="relative group">
+          <IoMailUnreadOutline className="absolute left-0 top-3 text-gray-300 group-focus-within:text-white transition-colors text-lg" />
+          <input
+            type="email"
+            placeholder="Email Address"
+            className="w-full bg-transparent border-b border-white/20 py-3 pl-8 pr-4 text-sm text-white placeholder:text-gray-300 focus:outline-none focus:border-white transition-all"
+          />
+        </div>
+
+        {/* Message Input */}
+        <div className="relative group">
+          <MdOutlineMarkChatUnread className="absolute left-0 top-3 text-gray-300 group-focus-within:text-white transition-colors text-lg" />
+          <textarea
+            rows="3"
+            placeholder="How can we help?"
+            className="w-full bg-transparent border-b border-white/20 py-3 pl-8 pr-4 text-sm text-white placeholder:text-gray-300 focus:outline-none focus:border-white transition-all resize-none"
+          ></textarea>
+        </div>
+
+        {/* Submit Button */}
+        <button className="w-full text-sm mt-2 bg-white hover:bg-gray-100 text-black py-3 cursor-pointer rounded-lg transition-all transform active:scale-95 shadow-lg flex justify-center items-center gap-2">
+          <span>Send Message</span>
+          <FiSend />
+        </button>
+      </form>
+    </motion.div>
+  );
+};
 
 export default Banner;

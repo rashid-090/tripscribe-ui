@@ -42,7 +42,7 @@ const Blog = () => {
             </div>
 
             {/* Featured Big Card */}
-            <div className="relative w-full aspect-video rounded-3xl overflow-hidden group cursor-pointer">
+            <div className="hidden xl:block relative w-full aspect-video rounded-3xl overflow-hidden group cursor-pointer">
               <img 
                 src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=1200" 
                 alt="Tropical Bliss" 

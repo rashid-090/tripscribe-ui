@@ -62,7 +62,7 @@ const FullScreenGallery = () => {
 
   return (
     // Changed h-screen to h-[100dvh] for better mobile browser support
-    <div className="relative w-full h-[100dvh] bg-black overflow-hidden font-sans">
+    <div className="relative w-full h-screen md:h-[50vh] xl:h-[100dvh] bg-black overflow-hidden font-sans">
       
       {/* --- BACKGROUND LAYER --- */}
       <div className="absolute inset-0 z-0">

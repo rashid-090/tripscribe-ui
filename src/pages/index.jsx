@@ -19,7 +19,7 @@ const index = () => {
       <Destination />
       <About />
       <div className="bg-black text-white py-20">
-        <div className="w-11/12 mx-auto grid grid-cols-1 md:grid-cols-2 pb-20 gap-10">
+        <div className="w-11/12 mx-auto grid grid-cols-1 md:grid-cols-2 gap-10">
           <div>
             <h2 className="text-4xl md:text-4xl xl:text-5xl font-messiri">
               Discover A Mesmerizing

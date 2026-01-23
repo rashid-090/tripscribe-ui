@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useLocation, Link } from 'react-router-dom';
-import { FiMenu, FiChevronDown, FiX } from 'react-icons/fi';
+import { FiMenu, FiChevronDown, FiX, FiArrowRight } from 'react-icons/fi';
 import { motion } from 'framer-motion'; // 1. Import motion
 
 const NAV_ITEMS = [
@@ -11,7 +11,7 @@ const NAV_ITEMS = [
     href: '/destination', 
     submenu: [
       { label: 'DESTINATION', href: '/destination' },
-      { label: 'DESTINATION DETAIL', href: '/destination/detail' },
+      { label: 'PACKAGES', href: '/packages' },
       { label: 'OFFERS', href: '/offers' }
     ] 
   },
@@ -21,7 +21,6 @@ const NAV_ITEMS = [
     submenu: [
       { label: 'TEAM', href: '/team' },
       { label: 'SERVICES', href: '/services' },
-      { label: 'CONTACT', href: '/contact' }
     ] 
   },
   { 
@@ -79,12 +78,12 @@ const Header = () => {
           ${isVisible ? 'translate-y-0' : '-translate-y-[200%]'} 
         `}
       >
-        <div className="text-4xl text-white tracking-wide cursor-pointer font-messiri">
+        <Link to={'/'} className="text-4xl text-white tracking-wide cursor-pointer font-messiri">
           tripscribe
-        </div>
+        </Link>
 
         {/* 2. Added layout prop to nav for smooth container resizing if needed */}
-        <nav className="hidden md:flex items-center gap-2 rounded-full border border-white/30 bg-white/5 px-2 py-2 backdrop-blur-sm">
+        <nav className="hidden xl:flex items-center gap-2 rounded-full border border-white/30 bg-white/5 px-2 py-2 backdrop-blur-sm">
           {NAV_ITEMS.map((item, index) => (
             <DesktopNavItem 
               key={index} 
@@ -96,18 +95,18 @@ const Header = () => {
 
         <button 
           onClick={() => setIsMobileMenuOpen(true)}
-          className="text-white hover:text-gray-300 transition-transform hover:scale-105 active:scale-95 md:hidden"
+          className="text-white hover:text-gray-300 transition-transform hover:scale-105 active:scale-95 xl:hidden"
         >
           <FiMenu size={32} strokeWidth={1.5} />
         </button>
-        <Link className='hidden md:block text-sm border border-white/30 bg-white/5 px-10 text-white py-4 uppercase text-sm backdrop-blur-sm rounded-full'>
+        <Link to={'/contact'} className='hidden xl:block text-sm border border-white/30 bg-white/5 px-10 text-white py-4 uppercase text-sm backdrop-blur-sm rounded-full'>
            get in touch
         </Link>
       </header>
 
 
       {/* ================= MOBILE MENU MODAL ================= */}
-      <div className={`fixed inset-0 z-[100] bg-[#0f0f0f] px-6 py-6 transition-opacity duration-300 md:hidden ${isMobileMenuOpen ? 'opacity-100 visible' : 'opacity-0 invisible pointer-events-none'}`}>
+      <div className={`fixed flex flex-col h-full justify-between inset-0 z-[100] bg-[#0f0f0f] px-6 py-6 transition-opacity duration-300 xl:hidden ${isMobileMenuOpen ? 'opacity-100 visible' : 'opacity-0 invisible pointer-events-none'}`}>
         <div className="flex items-center justify-between mb-8">
            <div className="text-4xl text-white tracking-wide font-serif">
             tripscribe
@@ -130,6 +129,14 @@ const Header = () => {
             />
           ))}
         </div>
+        <Link  to={'/contact'}  onClick={() => setIsMobileMenuOpen(false)}
+         className="group flex items-center justify-center gap-3 rounded-full bg-white px-8 py-4 text-black transition hover:bg-gray-200">
+          <span className="text-xs tracking-widest">GET STARTED</span>
+          <FiArrowRight
+            size={15}
+            className="transition-transform group-hover:translate-x-1"
+          />
+        </Link>
       </div>
     </>
   );
@@ -220,7 +227,7 @@ const MobileNavItem = ({ item, isActive, closeMenu }) => {
       <div 
         onClick={handleToggle}
         className={`
-          flex items-center justify-between w-full px-6 py-4 
+          flex items-center justify-between w-full px-4 py-4 
           text-[11px] font-bold tracking-widest rounded-full cursor-pointer select-none
           transition-colors duration-200
           ${isActive ? 'bg-white/10 text-white' : 'text-white hover:bg-white/5'}
@@ -238,6 +245,7 @@ const MobileNavItem = ({ item, isActive, closeMenu }) => {
             className={`text-white/70 transition-transform duration-300 ${isExpanded ? 'rotate-180' : ''}`} 
           />
         )}
+        
       </div>
 
       <div className={`overflow-hidden transition-all duration-300 ease-in-out ${isExpanded ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'}`}>
@@ -252,8 +260,10 @@ const MobileNavItem = ({ item, isActive, closeMenu }) => {
               {subItem.label}
             </Link>
           ))}
+
         </div>
       </div>
+         
     </div>
   );
 };

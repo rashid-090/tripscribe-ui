@@ -6,7 +6,7 @@ const Footer = () => {
     <footer className="w-full font-Quicksand">
       
       {/* ==================== 1. CTA SECTION (Top) ==================== */}
-      <div className="relative w-full h-[400px] md:h-[500px] flex items-center justify-center bg-gray-900">
+      <div className="relative w-full h-[400px] xl:h-[500px] flex items-center justify-center bg-gray-900">
         {/* Background Image */}
         <div 
           className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat"
@@ -37,7 +37,7 @@ const Footer = () => {
       <div className=" bg-[#0b0502] text-white pt-20 pb-8 ">
         
         {/* Grid Container */}
-        <div className="w-11/12 mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-8 mb-16 border-b border-white/10 pb-16">
+        <div className="w-11/12 mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-8 mb-8 border-b border-white/10 pb-16">
           
           {/* Column 1: Brand & Address (Span 4 cols) */}
           <div className="lg:col-span-4 space-y-6">
@@ -104,7 +104,7 @@ const Footer = () => {
         </div>
 
         {/* Footer Bottom (Copyright) */}
-        <div className="flex flex-col md:flex-row items-center justify-between text-xs text-gray-500 gap-4">
+        <div className="w-11/12 mx-auto flex flex-col md:flex-row items-center justify-between text-xs text-gray-500 gap-4">
           <p>tripscribe</p>
           <p>Copyright © 2026. All rights reserved</p>
         </div>

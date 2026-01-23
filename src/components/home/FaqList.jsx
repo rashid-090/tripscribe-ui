@@ -157,7 +157,7 @@ const FaqList = () => {
         </div>
 
         {/* Video Section */}
-        <div className="w-full relative h-[400px] md:h-[600px] rounded-[3rem] overflow-hidden group">
+        <div className="w-full relative h-[300px] xl:h-[600px] rounded-[3rem] overflow-hidden group">
           <div className="absolute inset-0 bg-black/20 z-10 pointer-events-none"></div>
           <video
             className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700 ease-out"

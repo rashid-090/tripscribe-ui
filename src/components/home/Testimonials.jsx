@@ -53,7 +53,7 @@ const TestimonialMarquee = () => {
           >
             {/* Body Text */}
             <p className="text-sm leading-relaxed text-gray-400 mb-8 font-light">
-              {item.text}
+              " {item.text} "
             </p>
 
             {/* Footer: Avatar & Info */}
@@ -72,7 +72,7 @@ const TestimonialMarquee = () => {
                 <h4 className="text-base font-messiri font-medium text-white tracking-wide">
                   {item.name}
                 </h4>
-                <span className="text-xs uppercase tracking-wider text-gray-500">
+                <span className="text-[10px] uppercase tracking-wider text-gray-400">
                   {item.role}
                 </span>
               </div>
